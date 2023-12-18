@@ -16,4 +16,5 @@
 !.config/picom
 !.config/picom/conf
 !.gitignore
+!README.md
 !.vimrc
