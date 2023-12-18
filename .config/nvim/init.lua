@@ -159,10 +159,10 @@ require('lazy').setup({
   {
     -- Theme
     'nikolvs/vim-sunbather',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'sunbather'
-    end,
+    -- priority = 1000,
+    -- config = function()
+    --   vim.cmd.colorscheme 'sunbather'
+    -- end,
   },
 
   {
@@ -359,6 +359,13 @@ require('lazy').setup({
   },
 
 }, {})
+
+-- Set colorscheme
+vim.cmd.colorscheme 'sunbather'
+vim.api.nvim_set_hl(0, 'Normal', { fg = "#ffffff", bg = "none" })
+vim.api.nvim_set_hl(0, 'Comment', { fg = "#444444", bold = true })
+vim.api.nvim_set_hl(0, 'Error', { fg = "#ffffff", undercurl = true })
+vim.api.nvim_set_hl(0, 'Cursor', { reverse = true })
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
