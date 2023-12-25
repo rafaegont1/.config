@@ -13,6 +13,11 @@
 !.config/ncmpcpp/config
 !.config/nvim
 !.config/nvim/init.lua
+!.config/nvim/lua
+!.config/nvim/config
+!.config/nvim/config/*
+!.config/nvim/plugins
+!.config/nvim/plugins/*
 !.config/picom
 !.config/picom/conf
 !.gitignore

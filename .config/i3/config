@@ -78,6 +78,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# print screen
+bindsym Print exec scrot
+
 # control focused window when follows the mouse movements
 focus_follows_mouse no
 
@@ -217,15 +220,15 @@ bar {
 }
 
 # class                  border  backgr. text    indicator child_border
-client.focused           #ff5f87 #000000 #d75f87 #21c063   #ff5f87
-client.focused_inactive  #333333 #5f676a #ffffff #113529   #5f676a
-client.unfocused         #333333 #222222 #888888 #292d2e   #222222
-client.urgent            #2f343a #900000 #ffffff #900000   #900000
-client.placeholder       #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused           #FF5F87 #000000 #D75F87 #000000   #FF5F87
+client.focused_inactive  #333333 #5F676A #FFFFFF #113529   #5F676A
+client.unfocused         #333333 #222222 #888888 #292D2E   #222222
+client.urgent            #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder       #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background        #000000
 
 # border tickness
-for_window [class=".*"] border pixel 4
+#for_window [class=".*"] border pixel 4
 
 # set specific windows to floating mode
 for_window [window_role="app"]                      floating enable
