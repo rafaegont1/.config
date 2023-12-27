@@ -63,6 +63,9 @@ local config = function()
 
     opts.desc = "Restart LSP"
     keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+    opts.desc = "Signature Documentation"
+    keymap.set("n", "<leader>s", vim.lsp.buf.signature_help, opts)
   end
 
   -- import cmp-nvim-lsp plugin

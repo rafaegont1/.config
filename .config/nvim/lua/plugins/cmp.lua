@@ -32,6 +32,11 @@ local config = function()
   }
 
   cmp.setup({
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
     mapping = cmp.mapping.preset.insert({
       ['<C-n>'] = cmp.mapping.select_next_item(),
       ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -60,10 +65,11 @@ local config = function()
       end, { 'i', 's' }),
     }),
     formatting = {
-      fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
+      fields = { "abbr", "kind", "menu" },
+      format = function(_, vim_item)
         -- Kind icons
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+        vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind or vim_item.kind
+        --vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
         --vim_item.menu = ({
         --  nvim_lsp = "[LSP]",
         --  luasnip = "[Snippet]",
@@ -80,11 +86,6 @@ local config = function()
     }, {
       { name = 'buffer' },
     }),
-    snippet = {
-      expand = function(args)
-        vim.snippet.expand(args.body)
-      end,
-    },
   })
 
   -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).

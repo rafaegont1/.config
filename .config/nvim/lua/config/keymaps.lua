@@ -39,8 +39,8 @@ keymap("n", "<A-S-l>", ":vertical resize +2<CR>", opts)
 keymap("n", "<A-w>", "<C-w>q", opts)
 
 -- Move text up and down
-keymap("n", "<C-j>", ":m .+1<CR>==", opts)
-keymap("n", "<C-k>", ":m .-2<CR>==", opts)
+--keymap("n", "<C-j>", ":m .+1<CR>==", opts)
+--keymap("n", "<C-k>", ":m .-2<CR>==", opts)
 
 -- Visual --
 -- Stay in indent mode
