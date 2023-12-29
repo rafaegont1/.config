@@ -32,8 +32,8 @@ local options = {
   signcolumn = "number",                   -- sign column
   wrap = true,                             -- display lines as one long line
   linebreak = true,                        -- companion to wrap, don't split words
-  scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
-  sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
+  scrolloff = 5,                           -- minimal number of screen lines to keep above and below the cursor
+  sidescrolloff = 5,                       -- minimal number of screen columns either side of cursor if wrap is `false`
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
   fillchars = 'eob:·',                     -- Fill end of file with dots instead of ~
 }

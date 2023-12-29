@@ -4,7 +4,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:terminus bold 10
+font pango:Terminess Nerd Font 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -48,9 +48,9 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -60,9 +60,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # print screen
@@ -96,6 +96,11 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# control volume
+bindsym $mod+period exec amixer -D pulse sset Master 5%+
+bindsym $mod+comma  exec amixer -D pulse sset Master 5%-
+bindsym $mod+m      exec amixer -D pulse sset Master toggle
+
 # Tornar a janela atual em scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -104,12 +109,6 @@ bindsym $mod+minus scratchpad show
 
 # Open chromium browser
 bindsym $mod+b exec chromium
-
-# Open zathura pdf viewer
-bindsym $mod+z exec zathura
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -161,8 +160,8 @@ mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff" {
         bindsym p exec --no-startup-id systemctl poweroff
 
         # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode       "default"
+        bindsym Escape mode       "default"
         bindsym $mod+Shift+e mode "default"
 }
 
@@ -176,16 +175,16 @@ mode "Resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
+        bindsym h resize shrink width  10 px or 10 ppt
+        bindsym j resize grow   height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym l resize grow   width  10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Down resize grow height  10 px or 10 ppt
+        bindsym Up resize shrink height  10 px or 10 ppt
+        bindsym Right resize grow width  10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -198,19 +197,23 @@ bindsym $mod+r mode "Resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    tray_output primary
-    position bottom
-    colors {
-        background          #000000
-        statusline          #ffffff
-        separator           #ffffff
-        focused_workspace   #d75f87 #ff5f87 #000000
-        active_workspace    #333333 #A8A8A8 #888888
-        inactive_workspace  #CECECE #000000 #f1f1f1
-        binding_mode        #10A778 #5FD7A7 #000000
-        urgent_workspace    #FF709b #FF709b #000000
-    }
+  #i3bar_command i3bar
+  #output primary
+  position bottom
+  #status_command i3blocks
+  status_command i3status
+  #status_command SCRIPT_DIR=~/.config/blocklets i3blocks
+  separator_symbol "  "
+  colors {
+    background          #000000
+    statusline          #ffffff
+    separator           #ffffff
+    focused_workspace   #d75f87 #ff5f87 #000000
+    active_workspace    #333333 #A8A8A8 #888888
+    inactive_workspace  #CECECE #000000 #f1f1f1
+    binding_mode        #10A778 #5FD7A7 #000000
+    urgent_workspace    #FF709b #FF709b #000000
+  }
 }
 
 # class                     border  backgr. text    indicator child_border
