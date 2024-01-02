@@ -1,3 +1,16 @@
+local indent = 2
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'Search', timeout = 500 })
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
 local options = {
   backup = false,                          -- creates a backup file
   --clipboard = "unnamedplus",             -- allows neovim to access the system clipboard
@@ -22,18 +35,18 @@ local options = {
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
+  shiftwidth = indent,                          -- the number of spaces inserted for each indentation
+  tabstop = indent,                             -- insert 2 spaces for a tab
   cursorline = false,                      -- highlight the current line
   number = true,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
   numberwidth = 2,                         -- set number column width
 
-  signcolumn = "number",                   -- sign column
+  signcolumn = "yes",
   wrap = true,                             -- display lines as one long line
   linebreak = true,                        -- companion to wrap, don't split words
-  scrolloff = 5,                           -- minimal number of screen lines to keep above and below the cursor
-  sidescrolloff = 5,                       -- minimal number of screen columns either side of cursor if wrap is `false`
+  scrolloff = 2,                           -- minimal number of screen lines to keep above and below the cursor
+  sidescrolloff = 2,                       -- minimal number of screen columns either side of cursor if wrap is `false`
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
   fillchars = 'eob:·',                     -- Fill end of file with dots instead of ~
 }

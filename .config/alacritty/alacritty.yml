@@ -7,7 +7,6 @@ window:
 
 font:
   normal:
-    #family: Terminess Nerd Font Mono
     family: Terminess Nerd Font Mono
     style: Regular
 
@@ -52,3 +51,63 @@ colors:
     magenta: '0xFFEE99'
     cyan:    '0x95E6CB'
     white:   '0xFFFFFF'
+
+# # Nightfox Alacritty Colors
+# # Style: carbonfox
+# # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/carbonfox/nightfox_alacritty.yml
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x000000'
+#     foreground: '0xf2f4f8'
+#   # Normal colors
+#   normal:
+#     black:   '0x282828'
+#     red:     '0xee5396'
+#     green:   '0x25be6a'
+#     yellow:  '0x08bdba'
+#     blue:    '0x78a9ff'
+#     magenta: '0xbe95ff'
+#     cyan:    '0x33b1ff'
+#     white:   '0xdfdfe0'
+#   # Bright colors
+#   bright:
+#     black:   '0x484848'
+#     red:     '0xf16da6'
+#     green:   '0x46c880'
+#     yellow:  '0x2dc7c4'
+#     blue:    '0x8cb6ff'
+#     magenta: '0xc8a5ff'
+#     cyan:    '0x52bdff'
+#     white:   '0xe4e4e5'
+#   indexed_colors:
+#     - { index: 16, color: '0x3ddbd9' }
+#     - { index: 17, color: '0xff7eb6' }
+
+# colors:
+#   # sunbather
+#   primary:
+#     background: '0x000000'
+#     foreground: '0xEEEEEE'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xC30771'
+#     green:   '0x10A778'
+#     yellow:  '0xA89C14'
+#     blue:    '0x008EC4'
+#     magenta: '0xFF5F87'
+#     cyan:    '0x20A5BA'
+#     white:   '0xF1F1F1'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x262626'
+#     red:     '0xE32791'
+#     green:   '0x5FD7A7'
+#     yellow:  '0xFFFF87'
+#     blue:    '0xb6d6fd'
+#     magenta: '0xD75F87'
+#     cyan:    '0x4FB8CC'
+#     white:   '0xFFFFFF'

@@ -42,6 +42,10 @@ keymap("n", "<A-w>", "<C-w>q", opts)
 --keymap("n", "<C-j>", ":m .+1<CR>==", opts)
 --keymap("n", "<C-k>", ":m .-2<CR>==", opts)
 
+-- Copy and paste clipboard register
+keymap('n', '<leader>y', '"+y', opts)
+keymap('n', '<leader>y', '"+p', opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv^", opts)
