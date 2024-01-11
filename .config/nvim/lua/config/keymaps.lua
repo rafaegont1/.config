@@ -44,7 +44,7 @@ keymap("n", "<A-w>", "<C-w>q", opts)
 
 -- Copy and paste clipboard register
 keymap('n', '<leader>y', '"+y', opts)
-keymap('n', '<leader>y', '"+p', opts)
+keymap('n', '<leader>p', '"+p', opts)
 
 -- Visual --
 -- Stay in indent mode

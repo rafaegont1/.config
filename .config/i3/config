@@ -75,8 +75,8 @@ bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # print screen
-bindsym                 Print exec scrot
-bindsym --release Shift+Print exec scrot -s
+bindsym                 Print exec scrot    && notify-send "Screenshot saved"
+bindsym --release Shift+Print exec scrot -s && notify-send "Screenshot saved"
 
 # change split orientation
 bindsym $mod+c split t
@@ -155,7 +155,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Create Log out, Reboot, Poweroff bindings
-mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff" {
+mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff" {
         bindsym r exec --no-startup-id systemctl reboot
         bindsym s exec --no-startup-id systemctl suspend; mode "default"
         bindsym l exit
@@ -167,7 +167,7 @@ mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff" {
         bindsym $mod+Shift+e mode "default"
 }
 
-bindsym $mod+Shift+e mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff"
+bindsym $mod+Shift+e mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff"
 
 # resize window (you can also use the mouse for that)
 mode "Resize" {

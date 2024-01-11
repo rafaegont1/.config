@@ -1,5 +1,8 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+key_bindings:
+  - { key: N, mods: Control, action: CreateNewWindow }
+
 window:
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
@@ -52,62 +55,62 @@ colors:
     cyan:    '0x95E6CB'
     white:   '0xFFFFFF'
 
-# # Nightfox Alacritty Colors
-# # Style: carbonfox
-# # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/carbonfox/nightfox_alacritty.yml
 # colors:
-#   # Default colors
 #   primary:
-#     background: '0x000000'
-#     foreground: '0xf2f4f8'
-#   # Normal colors
-#   normal:
-#     black:   '0x282828'
-#     red:     '0xee5396'
-#     green:   '0x25be6a'
-#     yellow:  '0x08bdba'
-#     blue:    '0x78a9ff'
-#     magenta: '0xbe95ff'
-#     cyan:    '0x33b1ff'
-#     white:   '0xdfdfe0'
-#   # Bright colors
-#   bright:
-#     black:   '0x484848'
-#     red:     '0xf16da6'
-#     green:   '0x46c880'
-#     yellow:  '0x2dc7c4'
-#     blue:    '0x8cb6ff'
-#     magenta: '0xc8a5ff'
-#     cyan:    '0x52bdff'
-#     white:   '0xe4e4e5'
-#   indexed_colors:
-#     - { index: 16, color: '0x3ddbd9' }
-#     - { index: 17, color: '0xff7eb6' }
-
-# colors:
-#   # sunbather
-#   primary:
-#     background: '0x000000'
-#     foreground: '0xEEEEEE'
+#     background:        "#000000"
+#     foreground:        "#f8f8f2"
+#     bright_foreground: "#ffffff"
 #
-#   # Normal colors
-#   normal:
-#     black:   '0x000000'
-#     red:     '0xC30771'
-#     green:   '0x10A778'
-#     yellow:  '0xA89C14'
-#     blue:    '0x008EC4'
-#     magenta: '0xFF5F87'
-#     cyan:    '0x20A5BA'
-#     white:   '0xF1F1F1'
+#   cursor:
+#     text:   "#282a36"
+#     cursor: "#f8f8f2"
 #
-#   # Bright colors
+#   vi_mode_cursor:
+#     text:   "CellBackground"
+#     cursor: "CellForeground"
+#
+#   selection:
+#     text:       "CellForeground"
+#     background: "#44475a"
+#
+#   normal:
+#     black:   "#21222c"
+#     red:     "#ff5555"
+#     green:   "#50fa7b"
+#     yellow:  "#f1fa8c"
+#     blue:    "#bd93f9"
+#     magenta: "#ff79c6"
+#     cyan:    "#8be9fd"
+#     white:   "#f8f8f2"
+#
 #   bright:
-#     black:   '0x262626'
-#     red:     '0xE32791'
-#     green:   '0x5FD7A7'
-#     yellow:  '0xFFFF87'
-#     blue:    '0xb6d6fd'
-#     magenta: '0xD75F87'
-#     cyan:    '0x4FB8CC'
-#     white:   '0xFFFFFF'
+#     black:   "#6272a4"
+#     red:     "#ff6e6e"
+#     green:   "#69ff94"
+#     yellow:  "#ffffa5"
+#     blue:    "#d6acff"
+#     magenta: "#ff92df"
+#     cyan:    "#a4ffff"
+#     white:   "#ffffff"
+#
+#   search:
+#     matches:
+#       foreground: "#44475a"
+#       background: "#50fa7b"
+#
+#     focused_match:
+#       foreground: "#44475a"
+#       background: "#ffb86c"
+#
+#   footer_bar:
+#     background: "#282a36"
+#     foreground: "#f8f8f2"
+#
+#   hints:
+#     start:
+#       foreground: "#282a36"
+#       background: "#f1fa8c"
+#
+#     end:
+#       foreground: "#f1fa8c"
+#       background: "#282a36"

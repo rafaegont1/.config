@@ -36,7 +36,7 @@
 !.config/nvim/lua/plugins/scrollbar.lua
 !.config/picom
 !.config/picom/conf
-!.dmenurc
 !.gitignore
 !.vimrc
+!.zshrc
 !README.md
