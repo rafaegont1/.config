@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Set up the prompt
 
 autoload -Uz promptinit
@@ -6,8 +13,9 @@ prompt suse
 
 # Aliases
 alias ls="ls --color=auto --group-directories-first -F"
-alias ll="ls --color=auto --group-directories-first -Fl"
-alias la="ls --color=auto --group-directories-first -Fla"
+alias ll="ls --color=auto --group-directories-first -Flh"
+alias lt="ls --color=auto --group-directories-first -Flht"
+alias la="ls --color=auto --group-directories-first -Flha"
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -65,3 +73,9 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # MISC
 setopt interactive_comments     # allow # comments in shell; good for copy/paste
+
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,15 +1,14 @@
-local indent = 2
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank({ higroup = 'Search', timeout = 500 })
   end,
-  group = highlight_group,
+  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
   pattern = '*',
 })
+
+local indent = 2
 
 local options = {
   backup = false,                          -- creates a backup file
@@ -43,7 +42,7 @@ local options = {
   numberwidth = 2,                         -- set number column width
 
   signcolumn = "yes",
-  wrap = true,                             -- display lines as one long line
+  wrap = false,                            -- display lines as one long line
   linebreak = true,                        -- companion to wrap, don't split words
   scrolloff = 1,                           -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 3,                       -- minimal number of screen columns either side of cursor if wrap is `false`

@@ -17,5 +17,6 @@ picom \
 ranger \
 rar \
 vlc \
+xbanish \
 zip
 ```
