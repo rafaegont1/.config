@@ -5,6 +5,10 @@
 !.config/alacritty/alacritty.yml
 !.config/helix
 !.config/helix/config.toml
+!.config/helix/themes
+!.config/helix/themes/sunbather.toml
+!.config/gdb-dashboard
+!.config/gdb-dashboard/init
 !.config/i3
 !.config/i3/config
 !.config/i3status

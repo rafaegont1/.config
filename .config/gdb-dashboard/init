@@ -1,0 +1,2 @@
+dashboard -layout source breakpoints stack variables
+dashboard source -style height 15
