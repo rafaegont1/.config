@@ -37,18 +37,18 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 'ui.cursor.select' = { } # The cursor in select mode (v).
 'ui.cursor.match' = { fg = "light_green", underline = { color = "light_green", style = "line" } } # The matching parentheses of that under the cursor.
 
-'ui.selection' = { bg = "light_green" } # All currently selected text.
+'ui.selection' = { fg = "light_green", underline = { color = "light_green", style = "line" } } # All currently selected text.
 'ui.selection.primary' = { bg = "subtle_black" } # The primary selection when there are multiple.
 
 'ui.linenr' = { fg = "lighter_black" } # Line numbers.
 'ui.linenr.selected' = { fg = "medium_gray" } # Current line number.
 
-'ui.virtual' = { } # Namespace for additions to the editing area.
+'ui.virtual' = { modifiers = ["italic"] } # Namespace for additions to the editing area.
 'ui.virtual.ruler' = { } # Vertical rulers (colored columns in editing area).
 'ui.virtual.whitespace' = { } # Whitespace markers in editing area.
 
 'ui.statusline' = { fg = "light_pink", bg = "subtle_black" } # Status line.
-'ui.statusline.inactive' = { fg = "lighter_black" } # Status line in unfocused windows.
+'ui.statusline.inactive' = { fg = "lighter_black", bg = "subtle_black" } # Status line in unfocused windows.
 "ui.statusline.normal" = { } # Statusline mode during normal mode (only if editor.color-modes is enabled)
 "ui.statusline.insert" = { } # Statusline mode during insert mode (only if editor.color-modes is enabled)
 "ui.statusline.select" = { } # Statusline mode during select mode (only if editor.color-modes is enabled)
@@ -73,7 +73,7 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 
 'type' = { modifiers = ["italic"] } # Variable type, like integer or string, including program defined classes, structs etc..
 'type.builtin' = { modifiers = ["italic"] } # Primitive types of the language (string, int, float).
-'type.enum.variant' = { modifiers = ["italic"] } # A variant of an enum.
+'type.enum.variant' = { } # A variant of an enum.
 
 'constructor' = { } # Constructor method for a class or struct.
 
@@ -82,7 +82,7 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 'constant.builtin.boolean' = "light_pink" # True or False.
 'constant.character' = "light_pink" # Constant of character type.
 'constant.character.escape' = "medium_gray" # escape codes like \n.
-'constant.numeric'  = "light_pink" # constant integer or float value.
+'constant.numeric' = "light_pink" # constant integer or float value.
 'constant.numeric.integer' = "light_pink" # constant integer value.
 'constant.numeric.float' = "light_pink" # constant float value.
 
@@ -122,7 +122,7 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 
 'operator' = { } # Logical, mathematical, and other operators.
 
-'function' = { modifiers = ["italic"] }
+'function' = { }
 'function.builtin' = { }
 'function.method' = { } # Class / Struct methods.
 'function.macro' = { }
@@ -149,8 +149,8 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 'markup.list.numbered' = { } # Numbered list.
 'markup.list.unnumbered' = { } # Bullet point list.
 
-'markup.bold' = { } # Bold text.
-'markup.italic' = { } # Italicised text.
+'markup.bold' = {  modifiers = ["bold"] } # Bold text.
+'markup.italic' = {  modifiers = ["italic"] } # Italicised text.
 
 'markup.link' = { }
 'markup.link.url' = { } # Urls pointed to by links.
