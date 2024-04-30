@@ -24,7 +24,7 @@ order += "volume master"
 order += "tztime local"
 
 memory {
-  format = "  %used / %total (%percentage_used)"
+  format = "  %used / %total (%percentage_used)"
   threshold_degraded = "25%"
   threshold_critical = "10%"
 }
@@ -41,18 +41,18 @@ disk "/" {
 }
 
 ethernet _first_ {
-  format_up = "IPv4:%ip"
-  format_down = "no IPv4"
+  format_up = "󰈁 %ip"
+  format_down = "󰈂 no IPv4"
 }
 
 volume master {
-  format = "<span color='#4FB8CC'>vol %volume</span>"
-  format_muted = "vol muted (%volume)"
+  format = "<span color='#4FB8CC'>󱄠 %volume</span>"
+  format_muted = "󰝟 %volume"
   device = "default"
   mixer = "Master"
   mixer_idx = 0
 }
 
 tztime local {
-  format = "  %d-%m-%Y (%a) %H:%M:%S "
+  format = "  %d-%m-%Y (%a) %H:%M:%S "
 }

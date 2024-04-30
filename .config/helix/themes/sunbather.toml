@@ -32,7 +32,7 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 'ui.text.info' = { bg = "subtle_black" } # Info popup contents (space mode menu).
 
 'ui.cursor' = { modifiers = ["reversed"] } # Fallback cursor colour, non-primary cursors when there are multiple (shift-c).
-'ui.cursor.primary' = { modifiers = ["reversed", "slow_blink"] } # The primary cursor when there are multiple (shift-c).
+'ui.cursor.primary' = { modifiers = ["reversed"] } # The primary cursor when there are multiple (shift-c).
 'ui.cursor.insert' = { } # The cursor in insert mode (i).
 'ui.cursor.select' = { } # The cursor in select mode (v).
 'ui.cursor.match' = { fg = "light_green", underline = { color = "light_green", style = "line" } } # The matching parentheses of that under the cursor.
@@ -43,9 +43,10 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 'ui.linenr' = { fg = "lighter_black" } # Line numbers.
 'ui.linenr.selected' = { fg = "medium_gray" } # Current line number.
 
-'ui.virtual' = { modifiers = ["italic"] } # Namespace for additions to the editing area.
+'ui.virtual' = { fg = "lighter_black" } # Namespace for additions to the editing area.
 'ui.virtual.ruler' = { } # Vertical rulers (colored columns in editing area).
 'ui.virtual.whitespace' = { } # Whitespace markers in editing area.
+'ui.virtual.jump-label' = { fg = "light_green", modifiers = ["bold"] } # Style for virtual jump labels
 
 'ui.statusline' = { fg = "light_pink", bg = "subtle_black" } # Status line.
 'ui.statusline.inactive' = { fg = "lighter_black", bg = "subtle_black" } # Status line in unfocused windows.
@@ -181,8 +182,8 @@ hint = "medium_gray" # Code diagnostics hints (LSP).
 
 'diff.plus' = "light_cyan" # Additions.
 'diff.minus' = "light_magenta" # Deletions.
-'diff.delta' = "light_green" # Modifications.
-'diff.delta.moved' = "light_yellow" # Renamed or moved files.
+'diff.delta' = "light_yellow" # Modifications.
+'diff.delta.moved' = "light_green" # Renamed or moved files.
 
 
 [palette] # Define your custom colors here.

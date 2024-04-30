@@ -2,6 +2,7 @@ theme = "sunbather"
 
 [editor]
 true-color = true
+scrolloff = 1
 bufferline = "always"
 
 [editor.cursor-shape]
@@ -11,10 +12,15 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+git-ignore = false
 
 [editor.statusline]
 left = ["mode", "spinner"]
-right = ["diagnostics", "position", "file-type"]
+right = ["diagnostics", "file-encoding", "position", "file-type"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.indent-guides]
+render = true
+character = "▏"

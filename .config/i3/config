@@ -14,7 +14,7 @@ font pango:Terminess Nerd Font 13
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Display Wallpaper
-exec_always feh --bg-fill /home/rafaegont1/images/waves.png
+#exec_always feh --bg-fill /home/rafaegont1/images/waves.png
 
 # Transparency with picom compositor
 exec_always picom -f --backend glx
@@ -28,9 +28,9 @@ exec --no-startup-id mpd
 focus_follows_mouse no
 
 # Window gaps
-smart_gaps on
-gaps inner 8
-gaps outer 2
+#smart_gaps on
+#gaps inner 8
+#gaps outer 2
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -43,7 +43,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
