@@ -11,26 +11,30 @@ font pango:Terminess Nerd Font 13
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
 
 # Display Wallpaper
-#exec_always feh --bg-fill /home/rafaegont1/images/waves.png
+exec_always feh --bg-fill $HOME/images/1049004.jpg
 
 # Transparency with picom compositor
 exec_always picom -f --backend glx
 
 # Services daemons
 #exec --no-startup-id unclutter -grab &
-exec --no-startup-id xbanish
-exec --no-startup-id mpd
+#exec --no-startup-id xbanish
+exec --no-startup-id systemctl --user start mpd
 
 # Control focused window when follows the mouse movements
 focus_follows_mouse no
 
 # Window gaps
-#smart_gaps on
-#gaps inner 8
-#gaps outer 2
+smart_gaps on
+gaps inner 8
+gaps outer 2
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -43,7 +47,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -104,14 +108,14 @@ bindsym $mod+period exec amixer -D pulse sset Master 5%+
 bindsym $mod+comma  exec amixer -D pulse sset Master 5%-
 bindsym $mod+m      exec amixer -D pulse sset Master toggle
 
-# Tornar a janela atual em scratchpad
+# Make current window scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-# Exibir a primeira janela oculta em scratchpad
+# Display first hidden window in scratchpad
 bindsym $mod+minus scratchpad show
 
-# Open chromium browser
-bindsym $mod+b exec chromium
+# Open a browser
+bindsym $mod+b exec firefox
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -126,7 +130,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# switch to workspace
+# Switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -138,7 +142,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
+# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -150,49 +154,49 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
+# Reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
 # Create Log out, Reboot, Poweroff bindings
 mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff" {
-        bindsym r exec --no-startup-id systemctl reboot
-        bindsym s exec --no-startup-id systemctl suspend; mode "default"
-        bindsym l exit
-        bindsym p exec --no-startup-id systemctl poweroff
+    bindsym r exec --no-startup-id systemctl reboot
+    bindsym s exec --no-startup-id systemctl suspend; mode "default"
+    bindsym l exit
+    bindsym p exec --no-startup-id systemctl poweroff
 
-        # back to normal: Enter or Escape
-        bindsym Return mode       "default"
-        bindsym Escape mode       "default"
-        bindsym $mod+Shift+e mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode       "default"
+    bindsym Escape mode       "default"
+    bindsym $mod+Shift+e mode "default"
 }
 
 bindsym $mod+Shift+e mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff"
 
 # resize window (you can also use the mouse for that)
 mode "Resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width  10 px or 10 ppt
-        bindsym j resize grow   height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow   width  10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width  10 px or 10 ppt
+    bindsym j resize grow   height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow   width  10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height  10 px or 10 ppt
-        bindsym Up resize shrink height  10 px or 10 ppt
-        bindsym Right resize grow width  10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height  10 px or 10 ppt
+    bindsym Up resize shrink height  10 px or 10 ppt
+    bindsym Right resize grow width  10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "Resize"
@@ -200,23 +204,24 @@ bindsym $mod+r mode "Resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  strip_workspace_numbers yes
-  status_command i3status
-  separator_symbol "  "
-  colors {
-    background          #000000
-    statusline          #ffffff
-    separator           #ffffff
-    #                   border  backgr. text
-    focused_workspace   #d75f87 #ff5f87 #000000
-    active_workspace    #333333 #A8A8A8 #888888
-    inactive_workspace  #CECECE #000000 #f1f1f1
-    binding_mode        #10A778 #5FD7A7 #000000
-    urgent_workspace    #FF709b #FF709b #000000
-  }
+    status_command i3status
+    i3bar_command i3bar -t # enable transparency
+    strip_workspace_numbers yes
+    separator_symbol "  "
+    colors {
+        background          #00000080
+        statusline          #ffffff
+        separator           #ffffff
+        #                   border  backgr.   text
+        focused_workspace   #d75f87 #ff5f87   #000000
+        active_workspace    #333333 #A8A8A880 #888888
+        inactive_workspace  #CECECE #00000080 #f1f1f1
+        binding_mode        #10A778 #5FD7A7   #000000
+        urgent_workspace    #FF709b #FF709b   #000000
+    }
 }
 
-# class                 border  backgr. text    indic.  child_border
+# Class                 Border  Backgr. Text    Indic.  Child_border
 client.focused          #FF5F87 #000000 #D75F87 #000000 #FF5F87
 client.focused_inactive #333333 #5F676A #FFFFFF #113529 #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E #222222
@@ -224,8 +229,8 @@ client.urgent           #2F343A #900000 #FFFFFF #900000 #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
 client.background       #000000
 
-# set specific windows to floating mode
-for_window [window_role="app"]                  floating enable
-for_window [window_role="pop-up"]               floating enable
-for_window [window_role="task_dialog"]          floating enable
-for_window [title="Preferences$"]               floating enable
+# Set specific windows to floating mode
+for_window [window_role="app"]         floating enable
+for_window [window_role="pop-up"]      floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="Preferences$"]      floating enable
