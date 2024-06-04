@@ -15,10 +15,10 @@ font pango:Terminess Nerd Font 13
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Display Wallpaper
-exec_always feh --bg-fill $HOME/images/1049004.jpg
+exec_always feh --bg-fill $HOME/Imagens/dark_ranger.jpeg
 
 # Transparency with picom compositor
 exec_always picom -f --backend glx
@@ -28,20 +28,33 @@ exec_always picom -f --backend glx
 #exec --no-startup-id xbanish
 exec --no-startup-id systemctl --user start mpd
 
+# Set window border size
+default_border pixel 1
+
 # Control focused window when follows the mouse movements
 focus_follows_mouse no
 
 # Window gaps
 smart_gaps on
-gaps inner 8
-gaps outer 2
+gaps inner  8
+gaps outer -4
+
+# Control output volume
+bindsym $mod+period exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $mod+comma  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+m      exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+# Microphone volume
+#bindsym $mod+Shift+period exec amixer -q set 'Rear Mic' toggle && killall -SIGUSR1 i3status
+#bindsym $mod+Shift+comma  exec amixer -q set 'Rear Mic' 2dB+ unmute && killall -SIGUSR1 i3status
+#bindsym $mod+Shift+m      exec amixer -q set 'Rear Mic' 2dB- unmute && killall -SIGUSR1 i3status
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -103,11 +116,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# control volume
-bindsym $mod+period exec amixer -D pulse sset Master 5%+
-bindsym $mod+comma  exec amixer -D pulse sset Master 5%-
-bindsym $mod+m      exec amixer -D pulse sset Master toggle
-
 # Make current window scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -115,7 +123,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Open a browser
-bindsym $mod+b exec firefox
+bindsym $mod+b exec chromium
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -160,22 +168,24 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Create Log out, Reboot, Poweroff bindings
-mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff" {
+mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff, turn (o)ff screen" {
     bindsym r exec --no-startup-id systemctl reboot
     bindsym s exec --no-startup-id systemctl suspend; mode "default"
     bindsym l exit
     bindsym p exec --no-startup-id systemctl poweroff
+    bindsym --release o exec --no-startup-id sleep 0.4 && xset -display $DISPLAY dpms force off; mode "default"
 
     # back to normal: Enter or Escape
-    bindsym Return mode       "default"
-    bindsym Escape mode       "default"
-    bindsym $mod+Shift+e mode "default"
+    bindsym Return mode              "default"
+    bindsym Escape mode              "default"
+    bindsym Control+bracketleft mode "default"
+    bindsym $mod+Shift+e mode        "default"
 }
 
-bindsym $mod+Shift+e mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff"
+bindsym $mod+Shift+e mode "(s)uspend, (l)ogout, (r)eboot, (p)oweroff, turn (o)ff screen"
 
 # resize window (you can also use the mouse for that)
-mode "Resize" {
+mode "shrink width (h) | grow height (j) | shrink height (k) | grow width (l)" {
     # These bindings trigger as soon as you enter the resize mode
 
     # Pressing left will shrink the window’s width.
@@ -194,12 +204,13 @@ mode "Resize" {
     bindsym Right resize grow width  10 px or 10 ppt
 
     # back to normal: Enter or Escape or $mod+r
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+    bindsym Return mode              "default"
+    bindsym Escape mode              "default"
+    bindsym Control+bracketleft mode "default"
+    bindsym $mod+r mode              "default"
 }
 
-bindsym $mod+r mode "Resize"
+bindsym $mod+r mode "shrink width (h) | grow height (j) | shrink height (k) | grow width (l)"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -223,7 +234,7 @@ bar {
 
 # Colors draw in window decorations
 # Class                 Border  Backgr.   Text    Indic.  Child_border
-client.focused          #FF5F87 #000000d0 #D75F87 #5FD7A7 #FF5F87
+client.focused          #FF5F87 #000000d0 #D75F87 #A790D5 #FF5F87
 client.focused_inactive #333333 #5F676Ab0 #FFFFFF #113529 #5F676A
 client.unfocused        #333333 #222222b0 #888888 #113529 #222222
 client.urgent           #2F343A #900000d0 #FFFFFF #900000 #900000
@@ -231,7 +242,14 @@ client.placeholder      #000000 #0C0C0Cb0 #FFFFFF #000000 #0C0C0C
 client.background       #000000
 
 # Set specific windows to floating mode
-for_window [window_role="app"]         floating enable
-for_window [window_role="pop-up"]      floating enable
+for_window [window_role="About"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [title="Preferences$"]      floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable

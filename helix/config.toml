@@ -11,11 +11,12 @@ normal = "block"
 select = "underline"
 
 [editor.file-picker]
-hidden = false
+hidden = true
 git-ignore = false
 
 [editor.statusline]
 left = ["mode", "spinner"]
+center = ["read-only-indicator"]
 right = ["diagnostics", "file-encoding", "position", "file-type"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -24,3 +25,8 @@ mode.select = "SELECT"
 [editor.indent-guides]
 render = true
 character = "▏"
+
+[keys.normal]
+C-s = ":w"
+C-q = ":bc"
+
