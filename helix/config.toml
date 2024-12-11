@@ -11,8 +11,8 @@ normal = "block"
 select = "underline"
 
 [editor.file-picker]
-hidden = true
-git-ignore = false
+hidden = false
+git-ignore = true
 
 [editor.statusline]
 left = ["mode", "spinner"]

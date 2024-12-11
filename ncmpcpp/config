@@ -106,7 +106,7 @@ current_item_inactive_column_suffix = $/r$(end)
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 
-#execute_on_song_change="pkill -RTMIN+11 dwmblocks"
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "/usr/share/icons/Adwaita/32x32/devices/media-optical-cd-audio-symbolic.symbolic.png"
 
 ##
 ## Note: Custom command that will be executed each time player state
