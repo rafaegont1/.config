@@ -25,11 +25,11 @@ exec_always picom -f --backend glx
 
 # Services daemons
 #exec --no-startup-id unclutter -grab &
-#exec --no-startup-id xbanish
+exec --no-startup-id xbanish
 exec --no-startup-id systemctl --user start mpd
 
 # Set window border size
-default_border pixel 1
+default_border pixel 3
 
 # Control focused window when follows the mouse movements
 focus_follows_mouse no

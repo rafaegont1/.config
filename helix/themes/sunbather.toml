@@ -132,7 +132,7 @@ hint    = { fg = "medium_gray" }  # Code diagnostics hints (LSP).
 'tag'       = { } # As in <body> for html, css tags.
 'tag.error' = { } # Erroneous closing html tags.
 
-'namespace' = { modifiers = ["italic"] } # Namespace or module identifier.
+'namespace' = { } # Namespace or module identifier.
 
 
 # Markup ==============================
