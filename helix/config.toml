@@ -1,10 +1,14 @@
-# theme = "gruvbox_light_hard"
-theme = "sunbather"
+# theme = "gruvbox_light"
+theme = "ayu_evolve"
 
 [editor]
 true-color = true
 scrolloff = 1
 bufferline = "always"
+rulers = [81]
+
+[editor.soft-wrap]
+enable = true
 
 [editor.cursor-shape]
 insert = "bar"
