@@ -8,24 +8,18 @@ indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "python"
-language-servers = ["pylsp"]
+language-servers = ["basedpyright", "ruff"]
 
-[language-server.pylsp.config.pylsp.plugins]
-pyls_mypy.enabled = true
-pyls_mypy.live_mode = true
-flake8.maxLineLength = 80
-pycodestyle.maxLineLength = 80
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+except-features = ["format", "code-action"]
 
-[language.formatter]
-command = "black"
-args = ["--line-length", "88", "--quiet", "-"]
+[language-server.basedpyright.config.basedpyright.analysis]
+autoSearchPaths = true
+typeCheckingMode = "basic"
+diagnosticMode = "openFilesOnly"
 
-# [language-server.pylsp.config.pylsp.plugins]
-# flake8 = {enabled = false}
-# autopep8 = {enabled = false}
-# mccabe = {enabled = false}
-# pycodestyle = {enabled = false}
-# pyflakes = {enabled = false}
-# pylint = {enabled = false}
-# yapf = {enabled = false}
-# ruff = {enabled = false}
+[language-server.ruff]
+command = "ruff"
+args = ["server", "--preview"]
