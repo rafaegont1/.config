@@ -20,6 +20,16 @@ autoSearchPaths = true
 typeCheckingMode = "basic"
 diagnosticMode = "openFilesOnly"
 
+[language-server.basedpyright.config.basedpyright.analysis.diagnosticSeverityOverrides]
+reportMissingTypeStubs = true
+reportUndefinedVariable = "none" # covered by ruff
+reportUnreachable = "none"
+reportUnusedImport = "none" # covered by ruff
+reportUnusedVariable = "none" # covered by ruff
+
 [language-server.ruff]
 command = "ruff"
 args = ["server", "--preview"]
+
+[language-server.ruff.config.settings]
+configuration = "~/.config/ruff/ruff.toml"

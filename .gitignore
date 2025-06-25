@@ -22,3 +22,5 @@
 !ncmpcpp
 !ncmpcpp/bindings
 !ncmpcpp/config
+!ruff
+!ruff/ruff.toml
