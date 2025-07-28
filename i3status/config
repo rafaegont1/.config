@@ -22,12 +22,14 @@ order += "load"
 #order += "cpu_temperature 0"
 order += "disk /"
 order += "ethernet _first_"
+#order += "wireless wlan0"
 #order += "volume capture"
 order += "volume master"
+#order += "battery 0"
 order += "tztime local"
 
 memory {
-  format = "MEM   %used  %total (%percentage_used)"
+  format = "RAM   %used / %total (%percentage_used)"
   threshold_degraded = "25%"
   threshold_critical = "10%"
 }
@@ -39,7 +41,7 @@ cpu_usage {
 }
 
 load {
-  format = "CPU LOAD   %1min %5min %15min"
+  format = "LOAD AVG   %1min %5min %15min"
 }
 
 cpu_temperature 0 {
@@ -48,13 +50,18 @@ cpu_temperature 0 {
 }
 
 disk "/" {
-  format = "DISK   %used  %total (%percentage_used)"
+  format = "DISK   %used / %total (%percentage_used)"
   low_threshold = 25
 }
 
 ethernet _first_ {
-  format_up = "IPv4 󰈁 %ip (%speed)"
-  format_down = "󰈂 no IPv4"
+  format_up = "ETH 󰈁 %ip (%speed)"
+  format_down = "󰈂 no ETH"
+}
+
+wireless wlan0 {
+  format_up = "Wi-Fi 󰖩  (%quality at %essid, %bitrate) %ip"
+  format_down = "Wi-Fi 󱛅  down"
 }
 
 volume capture {
@@ -64,6 +71,18 @@ volume capture {
   mixer = "Capture"
   mixer_idx = 0
 }  
+
+battery 0 {
+  format = "%status %percentage %remaining %emptytime"
+  format_down = "󱟩 no battery"
+  status_chr = "󱊥 CHR"
+  status_bat = "󱟣 BAT"
+  status_unk = "󰂑 UNK"
+  status_full = "󱊣 FULL"
+  #status_idle = "󱊢 IDLE"
+  path = "/sys/class/power_supply/BAT%d/uevent"
+  low_threshold = 10
+}
 
 volume master {
   format = "<span color='#4FB8CC'>󱄠 %volume</span>"

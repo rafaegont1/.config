@@ -10,22 +10,25 @@ window:
 
 font:
     normal:
-        family: ShureTechMono Nerd Font Mono
+        family: Terminess Nerd Font Mono
         style: Regular
 
-    # bold:
-    #     family: Terminess Nerd Font Mono
-    #     style: Bold
+    bold:
+        family: Terminess Nerd Font Mono
+        style: Bold
 
-    # italic:
-    #     family: Terminess Nerd Font Mono
-    #     style: Italic
+    italic:
+        family: Terminess Nerd Font Mono
+        style: Italic
 
-    # bold_italic:
-    #     family: Terminess Nerd Font Mono
-    #     style: Bold Italic
+    bold_italic:
+        family: Terminess Nerd Font Mono
+        style: Bold Italic
 
-    size: 15
+    offset:
+        x: -2
+
+    size: 20
 
 colors:
     # Default colors
@@ -54,6 +57,8 @@ colors:
         magenta: '0xFFEE99'
         cyan:    '0x95E6CB'
         white:   '0xFFFFFF'
+
+draw_bold_text_with_bright_colors: true
 
 key_bindings:
     - { key: N, mods: Control, action: CreateNewWindow                           }

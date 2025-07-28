@@ -1,11 +1,14 @@
-# theme = "gruvbox_light"
-theme = "ayu_evolve"
+# theme = "gruvbox_light_soft"
+theme = "gruvbox_dark_hard"
 
 [editor]
 true-color = true
 scrolloff = 1
 bufferline = "always"
 rulers = [81]
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
 
 [editor.soft-wrap]
 enable = true
@@ -32,5 +35,6 @@ render = true
 character = "▏"
 
 [keys.normal]
-C-s = ":w"
+C-e = ":w"
 C-q = ":bc"
+C-r = ":rla"

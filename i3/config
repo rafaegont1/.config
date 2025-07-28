@@ -18,7 +18,7 @@ font pango:Terminess Nerd Font Bold 13
 #exec --no-startup-id nm-applet
 
 # Display Wallpaper
-exec_always feh --bg-fill $HOME/images/waves.jpeg
+exec_always feh --bg-fill $HOME/images/city.jpeg
 
 # Transparency with picom compositor
 exec_always picom -f --backend glx
